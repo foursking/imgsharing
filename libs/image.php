@@ -63,19 +63,19 @@
 			return $image;
 		}
 		
-		//返回等比例缩放的图片宽度和高度，如果原图比缩放后的还小保持不变
-		private function getNewSize($name, $width, $height,$imageInfo){	
-			$size["width"]=$imageInfo["width"];          //将原图片的宽度给数组中的$size["width"]
-			$size["height"]=$imageInfo["height"];        //将原图片的高度给数组中的$size["height"]
+        private function getNewSize($name, $width, $height,$imageInfo)
+        {	
+			$size["width"]  = $imageInfo["width"];          
+			$size["height"] = $imageInfo["height"];        
 			
 			if($width < $imageInfo["width"])
 			{
-				$size["width"]=$width;             //缩放的宽度如果比原图小才重新设置宽度
+				$size["width"] = $width;             
 			}
 
 			if($height < $imageInfo["height"])
 			{
-				$size["height"]=$height;            //缩放的高度如果比原图小才重新设置高度
+				$size["height"] = $height;            
 			}
 
             if($imageInfo["width"]*$size["width"] > $imageInfo["height"] * $size["height"])
@@ -123,7 +123,7 @@
 			$newimage = imagecreatetruecolor($size["width"], $size["height"]);		
 			$otsc = imagecolortransparent($srcimage); //将某个颜色定义为透明色
             if( $otsc >= 0 && $otsc < imagecolorstotal($srcimage)) 
-            {  //取得一幅图像的调色板中颜色的数目
+            {  
 		  		 $transparentcolor = imagecolorsforindex( $srcimage, $otsc ); //取得某索引的颜色
 		 		 $newtransparentcolor = imagecolorallocate($newimage,$transparentcolor['red'],$transparentcolor['green'],$transparentcolor['blue']);
 		  		 imagefill( $newimage, 0, 0, $newtransparentcolor );
