@@ -199,7 +199,7 @@ class FileUpload
     {
         if(!$this->errorNum) 
         {
-            $path = dirname(dirname(__FILE__)) . '/'; 
+            $path = dirname(dirname(__FILE__)) . '/Uploads/images/'; 
             $path .= $this->newFileName;
             if (@move_uploaded_file($this->tmpFileName, $path)) 
             {
